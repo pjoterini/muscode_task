@@ -64,7 +64,7 @@ li {
   margin-top: 1rem;
   padding-left: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid#b2b2b2;
+  border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
 }
@@ -75,7 +75,7 @@ input {
 
   border-radius: 50%;
   vertical-align: middle;
-  border: 3px solid #b2b2b2;
+  border: 3px solid var(--border);
   appearance: none;
   -webkit-appearance: none;
   outline: none;
@@ -83,7 +83,7 @@ input {
 }
 
 input:checked {
-  border-color: #862583;
+  border-color: var(--button-focus-color);
 }
 
 p {
@@ -93,7 +93,7 @@ p {
 
 .add-element {
   padding-bottom: 0;
-  color: #b2b2b2;
+  color: var(--border);
   cursor: pointer;
 }
 

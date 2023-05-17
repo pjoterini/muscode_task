@@ -21,3 +21,11 @@ export const products = [
     currency: 'PLN',
   },
 ];
+
+export interface IProduct {
+  id: number;
+  title: string;
+  promoPrice: number;
+  price: number;
+  currency: string;
+}

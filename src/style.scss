@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
 :root {
+  --border: #b2b2b2;
+  --main-font-color: #384a5c;
+  --heading-font-color: #333;
+  --button-focus-color: #862583;
   font-family: 'Roboto', sans-serif;
 
   line-height: 1.5;
   font-weight: 400;
   font-size: 14px;
   background-color: rgb(235, 235, 235);
-  color: #384a5c;
+  color: var(--main-font-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -49,13 +53,23 @@ body {
 
 h1,
 h2 {
-  color: #333;
+  color: var(--heading-font-color);
   font-weight: 500;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.2rem;
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid #b2b2b2;
+  border: 1px solid --gray-color;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -65,10 +79,16 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #862583;
+  border-color: var(--button-focus-color);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-  color: #862583;
+  color: var(--button-focus-color);
+}
+
+@media (max-width: 700px) {
+  :root {
+    font-size: 12px;
+  }
 }
