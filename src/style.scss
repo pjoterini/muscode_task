@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  --border: #b2b2b2;
+  --main-font-color: #384a5c;
+  --heading-font-color: #333;
+  --button-focus-color: #862583;
+  font-family: 'Roboto', sans-serif;
+
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 14px;
+  background-color: rgb(235, 235, 235);
+  color: var(--main-font-color);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+.card-container {
+  position: relative;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 1rem;
+  -webkit-box-shadow: 2px 0px 15px 1px rgba(206, 206, 206, 0.52);
+  -moz-box-shadow: 2px 0px 15px 1px rgba(206, 206, 206, 0.52);
+  box-shadow: 2px 0px 15px 1px rgba(206, 206, 206, 0.52);
+  overflow: hidden;
+}
+
+.upper-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+h1,
+h2 {
+  color: var(--heading-font-color);
+  font-weight: 500;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+button {
+  border: 1px solid var(--button-focus-color);
+  padding: 0.3rem 0.8rem;
+  font-size: 1em;
+  font-weight: 400;
+  background-color: white;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  transition: border-color 0.25s;
+}
+
+.button-submit {
+  background-color: var(--button-focus-color);
+  color: white;
+}
+
+button:hover {
+  border-color: var(--button-focus-color);
+}
+button:focus,
+button:focus-visible {
+  color: white;
+}
+
+@media (max-width: 700px) {
+  :root {
+    font-size: 12px;
+  }
+}
