@@ -116,7 +116,7 @@ h2 {
 
 img {
   margin: 2rem;
-  min-height: 200px;
+  height: 200px;
   width: 200px;
   object-fit: fill;
   border-radius: 50%;
@@ -124,7 +124,7 @@ img {
 }
 
 form {
-  flex-grow: 5;
+  flex-grow: 2;
   width: 100%;
   display: flex;
   justify-content: space-between;
