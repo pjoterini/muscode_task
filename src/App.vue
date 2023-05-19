@@ -5,7 +5,6 @@ import ProductsTable from './components/ProductsTable/ProductsTable.vue';
 import TodoList from './components/TodoList/TodoList.vue';
 
 export default defineComponent({
-  name: 'App',
   components: { TodoList, ProductsTable, ProductCardsContainer },
 });
 </script>
@@ -23,7 +22,7 @@ export default defineComponent({
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-auto-rows: 1fr;
+
   gap: 1rem;
   width: 1180px;
   padding: 1rem;

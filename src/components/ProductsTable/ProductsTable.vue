@@ -1,11 +1,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { products } from '../../utils/productsMockup';
+import { mockProducts } from '../../utils/productsMockup';
 
 export default defineComponent({
   data() {
     return {
-      products: products,
+      products: mockProducts,
     };
   },
 });

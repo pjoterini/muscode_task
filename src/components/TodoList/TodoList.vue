@@ -1,40 +1,64 @@
 <script lang="ts">
+import { defineComponent, ref } from 'vue';
+import PlusIcon from './PlusIcon.vue';
+
+interface ITodo {
+  id: number;
+  text: string;
+  checked: boolean;
+}
+
 export default defineComponent({
-  data() {
+  components: { PlusIcon },
+  setup() {
+    const id = ref(0);
+    const newTodoTextValue = ref('');
+    const todos = ref<ITodo[]>([
+      {
+        id: 0,
+        text: 'Lorem ipsum dolor sit amet.',
+        checked: false,
+      },
+    ]);
+    const tasksDone = ref<number>(0);
+
+    const addTodo = (e: Event) => {
+      e.preventDefault();
+
+      const newTodo: ITodo = {
+        id: id.value++,
+        text: newTodoTextValue.value,
+        checked: false,
+      };
+
+      newTodoTextValue.value = '';
+
+      if (todos.value.length < 10) {
+        todos.value.push(newTodo);
+      }
+    };
+
+    const taskDone = (e: Event, todo: ITodo) => {
+      const ischecked = (<HTMLInputElement>e.target).checked;
+      if (ischecked) {
+        todo.checked = true;
+        tasksDone.value++;
+      } else {
+        todo.checked = false;
+        tasksDone.value--;
+      }
+    };
+
     return {
-      id: 0,
-      todos: [
-        {
-          id: 0,
-          text: 'Lorem ipsum dolor sit amet.',
-        },
-      ],
-      tasksDone: 0,
+      id,
+      todos,
+      newTodoTextValue,
+      tasksDone,
+      addTodo,
+      taskDone,
     };
   },
-  methods: {
-    handleEnter() {
-      const newTodo = {
-        id: this.id++,
-        text: 'Lorem ipsum dolor sit amet.',
-      };
-      if (this.todos.length < 10) {
-        this.todos.push(newTodo);
-      }
-    },
-    taskDone(e: any) {
-      if (e.target.checked) {
-        this.tasksDone++;
-      } else {
-        this.tasksDone--;
-      }
-    },
-  },
 });
-</script>
-
-<script setup lang="ts">
-import { defineComponent } from 'vue';
 </script>
 
 <template>
@@ -45,13 +69,32 @@ import { defineComponent } from 'vue';
     </div>
     <ul v-if="todos.length">
       <li v-for="todo in todos" :key="todo.id">
-        <input @change="taskDone" type="checkbox" />
+        <input
+          class="checkbox"
+          @change="e => taskDone(e, todo)"
+          type="checkbox"
+        />
         <p>{{ todo.text }}</p>
-      </li>
-      <li @click="handleEnter" class="add-element">
-        <span class="plus">+</span> Dodaj nowy element checklisty
+        <img
+          class="check-icon"
+          v-if="todo.checked"
+          src="/src/assets/check.svg"
+          alt="check-icon"
+        />
       </li>
     </ul>
+    <form action="submit" @submit="addTodo">
+      <div class="add-element-input-container">
+        <PlusIcon />
+        <input
+          class="add-element-input"
+          type="text"
+          v-model="newTodoTextValue"
+          placeholder="Dodaj nowy element checklisty"
+          required
+        />
+      </div>
+    </form>
   </div>
 </template>
 
@@ -69,10 +112,9 @@ li {
   align-items: center;
 }
 
-input {
+.checkbox {
   width: 1.3em;
   height: 1.3em;
-
   border-radius: 50%;
   vertical-align: middle;
   border: 3px solid var(--border);
@@ -82,8 +124,8 @@ input {
   cursor: pointer;
 }
 
-input:checked {
-  border-color: var(--button-focus-color);
+.checkbox:checked {
+  border: 3px solid var(--button-focus-color);
 }
 
 p {
@@ -91,14 +133,27 @@ p {
   margin-left: 1rem;
 }
 
-.add-element {
-  padding-bottom: 0;
+.check-icon {
+  width: 20px;
+  margin-left: 1rem;
+}
+
+.add-element-input-container {
+  display: flex;
+}
+
+.add-element-input {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
   color: var(--border);
+  border: none;
+  border-bottom: 1px solid var(--border);
   cursor: pointer;
 }
 
-.plus {
-  font-size: 2rem;
-  margin-right: 1rem;
+.add-element-input:focus {
+  outline: none;
+  font-size: 1rem;
 }
 </style>

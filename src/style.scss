@@ -36,12 +36,14 @@ body {
 }
 
 .card-container {
+  position: relative;
   padding: 1.5rem;
   background-color: white;
   border-radius: 1rem;
   -webkit-box-shadow: 2px 0px 15px 1px rgba(206, 206, 206, 0.52);
   -moz-box-shadow: 2px 0px 15px 1px rgba(206, 206, 206, 0.52);
   box-shadow: 2px 0px 15px 1px rgba(206, 206, 206, 0.52);
+  overflow: hidden;
 }
 
 .upper-section {
@@ -68,23 +70,27 @@ h2 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid --gray-color;
-  padding: 0.6em 1.2em;
+  border: 1px solid var(--button-focus-color);
+  padding: 0.3rem 0.8rem;
   font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
+  font-weight: 400;
   background-color: white;
   cursor: pointer;
+  margin-left: 0.5rem;
   transition: border-color 0.25s;
 }
+
+.button-submit {
+  background-color: var(--button-focus-color);
+  color: white;
+}
+
 button:hover {
   border-color: var(--button-focus-color);
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-  color: var(--button-focus-color);
+  color: white;
 }
 
 @media (max-width: 700px) {

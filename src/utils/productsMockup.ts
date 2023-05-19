@@ -1,4 +1,4 @@
-export const products = [
+export const mockProducts = [
   {
     id: 0,
     title: 'iPhone 6s Plus 16GB',
@@ -16,7 +16,7 @@ export const products = [
   {
     id: 2,
     title: 'MacBook Pro',
-    promoPrice: '',
+    promoPrice: null,
     price: 8000,
     currency: 'PLN',
   },
@@ -25,7 +25,7 @@ export const products = [
 export interface IProduct {
   id: number;
   title: string;
-  promoPrice: number;
+  promoPrice: number | null;
   price: number;
   currency: string;
 }
