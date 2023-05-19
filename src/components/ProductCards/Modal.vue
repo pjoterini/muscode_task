@@ -96,7 +96,7 @@ export default defineComponent({
 }
 
 .modal-content {
-  height: 100vh;
+  height: 100dvh;
   background-color: white;
   min-width: 500px;
   display: flex;
