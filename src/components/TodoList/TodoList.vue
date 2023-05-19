@@ -78,7 +78,7 @@ export default defineComponent({
         <img
           class="check-icon"
           v-if="todo.checked"
-          src="/src/assets/check.svg"
+          src="/check.svg"
           alt="check-icon"
         />
       </li>

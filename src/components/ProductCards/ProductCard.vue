@@ -28,7 +28,7 @@ export default defineComponent({
     <div class="upper-section">
       <h2>{{ product.title }}</h2>
     </div>
-    <img :src="`/src/assets/img${product.id + 1}.png`" />
+    <img :src="`/img${product.id + 1}.png`" />
     <div class="prices">
       <p v-if="product.promoPrice" class="price">
         {{ product.promoPrice }} {{ product.currency }}
